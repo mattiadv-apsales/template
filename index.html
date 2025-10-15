@@ -16,9 +16,8 @@
                 width: 100vw;
                 height: 100vh;
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -31,6 +30,10 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 9999;
             }
 
             .navbar > a {
@@ -41,65 +44,83 @@
             }
 
             .lower-part {
-                width: 100%;
-                min-height: 90vh;
+                width: 80%;
+                min-height: 100vh;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                justify-content: flex-start; 
+                align-items: flex-start;
+                overflow-y: scroll;
+                scroll-behavior: smooth;
+                max-height: 100vh;
+            }
+
+            .left-part {
+                width: 20%;
+                min-height: 100%;
+                max-height: 100%;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start; 
+                align-items: center;
+                border-right: 1px solid black;
+                padding-top: 20px;
+                gap: 20px;
+            }
+
+            .left-part > .buttons {
+                display: flex;
                 justify-content: center;
                 align-items: center;
-            }
-
-            .lower-part .left-part {
-                width: 20%;
-                height: 100%;
-                border-right: 1px solid black;
-                display: flex;
-                padding: 20px;
-                justify-content: flex-start;
-                align-items: flex-start;
                 flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding: 10px;
             }
 
-            .lower-part .left-part .button_menu_left {
+            .left-part > .buttons > .button_menu_left {
                 width: 80%;
                 padding: 10px;
-                border: none;
-                background-color: lightgray;
-                cursor: pointer;
-                font-size: 16px;
                 margin-bottom: 10px;
+                border: none;
+                background: black;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
                 border-radius: 26px;
             }
 
-            .lower-part .right-part {
-                width: 80%;
-                height: 100%;
+            .right-part {
+                width: 100%;
+                min-height: 100vh;
                 padding: 20px;
-                max-height: 100%;
-                overflow-y: scroll;
-                scroll-behavior: smooth;
-                flex-wrap: wrap;
                 display: flex;
-                justify-content: flex-start;
+                flex-direction: column;
+                justify-content: flex-start; 
                 align-items: flex-start;
+                gap: 20px;
             }
         </style>
     </head>
     <body>
 
         <div class = "container">
-            <div class = "navbar">
-                <!-- CONTENUTO NAVBAR -->
-                 <a href = "#">Home</a>
-                 <a href = "#">Home</a>
-                 <a href = "#">Home</a>
-                 <a href = "#">Home</a>
+            <div class = "left-part">
+                <!-- CONTENUTO MENU A SINISTRA -->
+                <img src="#" alt = "logo" class = "logo">
+                <div class = "buttons">
+                    <button class = "button_menu_left">Add</button>
+                    <button class = "button_menu_left">Home</button>
+                </div>
             </div>
             <div class = "lower-part">
-                <div class = "left-part">
-                    <!-- CONTENUTO MENU A SINISTRA -->
-                        <button class = "button_menu_left">Add</button>
-                        <button class = "button_menu_left">Home</button>
+                <div class = "navbar">
+                    <!-- CONTENUTO NAVBAR -->
+                    <a href = "#">Home</a>
+                    <a href = "#">Home</a>
+                    <a href = "#">Home</a>
+                    <a href = "#">Home</a>
                 </div>
                 <div class = "right-part">
                     <!-- CONTENUTO MAIN DELLA PAGINA -->
