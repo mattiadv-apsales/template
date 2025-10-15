@@ -10,6 +10,11 @@
                 margin: 0;
                 box-sizing: border-box;
                 font-family: sans-serif;
+                color: white;
+            }
+
+            body {
+                background: hsla(330, 5%, 7%, 1);
             }
 
             .container {
@@ -23,7 +28,7 @@
             }
 
             .navbar {
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid hsla(220, 5%, 20%, 1);
                 width: 100%;
                 padding: 20px;
                 max-height: 10vh;
@@ -32,15 +37,19 @@
                 align-items: center;
                 position: sticky;
                 top: 0;
-                background: white;
+                background: hsla(330, 5%, 7%, 1);
+                color: white;
                 z-index: 9999;
                 gap: 15px;
             }
 
             .navbar > a {
                 text-decoration: none;
-                color: black;
                 font-size: 18px;
+            }
+
+            .left-part::-webkit-progress-bar {
+                background: hsla(220, 5%, 20%, 1);
             }
 
             .lower-part {
