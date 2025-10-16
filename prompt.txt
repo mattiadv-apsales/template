@@ -1,0 +1,117 @@
+Titolo: Template Web Responsivo
+Descrizione: Genera un template web completo con sidebar, navbar e contenuto principale, totalmente responsivo e con tema scuro.
+
+STRUTTURA:
+- Container:
+  - Tipo: flex
+  - Direzione: row
+  - Full width e full height: true
+
+- Sidebar (sinistra):
+  - Posizione: left
+  - Larghezza: 10%
+  - Min width: 240px
+  - Scrollabile: true
+  - Pulsanti: 10
+  - Stile pulsanti:
+    - Padding: 12px 16px
+    - Border radius: 0.75rem
+    - Transition: all 0.3s cubic-bezier(0.4,0,0.2,1)
+    - Hover:
+      - Background: linear-gradient(135deg, hsl(359,95%,56%), hsl(359,85%,50%))
+      - Colore testo: hsl(0,0%,96%)
+      - Box shadow: 0 0 40px hsla(359,95%,56%,0.3)
+      - Trasformazione: translateX(5px)
+  - Colori:
+    - Background: hsl(210,6%,15%)
+    - Foreground: hsl(0,0%,91%)
+    - Muted: hsl(210,6%,20%)
+    - Muted foreground: hsl(0,0%,66%)
+    - Border: hsl(210,6%,20%)
+
+- Navbar:
+  - Altezza: 70px
+  - Padding: 12px 20px
+  - Background: hsl(210,6%,15%)
+  - Box shadow: 0 2px 8px hsla(210,7%,7%,0.4)
+  - Logo:
+    - Dimensione: 48x48px
+    - Border radius: 0.75rem
+    - Hover shadow: 0 8px 32px hsla(359,95%,56%,0.15)
+  - Link: Home, Servizi, Chi Siamo, Contatti
+  - Dropdown:
+    - Label: Altro
+    - Link: Home, Servizi, Chi Siamo, Contatti
+
+- Contenuto principale:
+  - Padding: 24px
+  - Scrollable: true
+  - Colore testo: hsl(0,0%,91%)
+  - Font size: 15px
+  - Line height: 1.8
+
+- Overlay:
+  - Attivo su mobile: true
+  - Background: hsla(210,7%,7%,0.5)
+
+COLORI PRINCIPALI:
+- Background: hsl(210,7%,7%)
+- Foreground: hsl(0,0%,96%)
+- Card: hsl(210,6%,15%)
+- Card foreground: hsl(0,0%,91%)
+- Popover: hsl(210,6%,15%)
+- Popover foreground: hsl(0,0%,91%)
+- Primary: hsl(359,95%,56%)
+- Primary foreground: hsl(0,0%,96%)
+- Secondary: hsl(210,6%,15%)
+- Secondary foreground: hsl(0,0%,91%)
+- Muted: hsl(210,6%,20%)
+- Muted foreground: hsl(0,0%,66%)
+- Accent: hsl(359,95%,56%)
+- Accent foreground: hsl(0,0%,96%)
+- Destructive: hsl(0,84%,60%)
+- Destructive foreground: hsl(0,0%,96%)
+- Border: hsl(210,6%,20%)
+- Input: hsl(210,6%,15%)
+- Ring: hsl(359,95%,56%)
+
+GRADIENTI:
+- Crimson: linear-gradient(135deg, hsl(359,95%,56%), hsl(359,85%,50%))
+- Dark: linear-gradient(135deg, hsl(210,7%,7%), hsl(210,6%,15%))
+- Glass: linear-gradient(135deg, hsla(359,95%,56%,0.1), hsla(359,95%,56%,0.05))
+
+OMBRE:
+- Glass: 0 8px 32px hsla(359,95%,56%,0.15)
+- Crimson: 0 0 40px hsla(359,95%,56%,0.3)
+- Minimal: 0 2px 8px hsla(210,7%,7%,0.4)
+
+TRANSIZIONI:
+- Smooth: all 0.3s cubic-bezier(0.4,0,0.2,1)
+
+RESPONSIVITÀ:
+- Tablet 1024px:
+  - Sidebar width: 22%
+  - Main width: 78%
+  - Pulsante font size: 14px
+  - Pulsante padding: 10px 14px
+- Tablet 768px:
+  - Sidebar overlay: true
+  - Menu toggle visibile: true
+  - Main width: 100%
+- Mobile 480px:
+  - Navbar height: 60px
+  - Logo size: 40x40px
+  - Sidebar full width: true
+- Extra small 360px:
+  - Navbar height: 56px
+  - Logo size: 36x36px
+  - Pulsante font size: 12px
+  - Padding pulsante: 8px 10px
+
+JAVASCRIPT:
+- Toggle sidebar: true
+- Overlay click chiude sidebar: true
+- Click pulsante chiude sidebar: true
+- Dropdown click toggle: true
+- Click fuori chiude dropdown: true
+- Resize finestra > 768px chiude sidebar e dropdown: true

@@ -1,0 +1,135 @@
+// Usa questo JSON come specifica per generare un template HTML/CSS/JS completo, 
+// responsive, con sidebar, navbar, overlay mobile, pulsanti e dropdown.
+// Mantieni tutti i colori, gradienti, ombre e transizioni indicati.
+
+{
+  "title": "Template Web Responsivo",
+  "description": "Genera un template web completo, con sidebar, navbar e contenuto principale, totalmente responsivo e con tema scuro.",
+  "structure": {
+    "container": {
+      "type": "flex",
+      "direction": "row",
+      "fullWidth": true,
+      "fullHeight": true
+    },
+    "sidebar": {
+      "position": "left",
+      "width": "10%",
+      "minWidth": "240px",
+      "scrollable": true,
+      "buttons": 10,
+      "buttonStyle": {
+        "padding": "12px 16px",
+        "borderRadius": "0.75rem",
+        "transition": "all 0.3s cubic-bezier(0.4,0,0.2,1)",
+        "hover": {
+          "background": "linear-gradient(135deg, hsl(359,95%,56%), hsl(359,85%,50%))",
+          "color": "hsl(0,0%,96%)",
+          "boxShadow": "0 0 40px hsla(359,95%,56%,0.3)",
+          "transform": "translateX(5px)"
+        }
+      },
+      "colors": {
+        "background": "hsl(210,6%,15%)",
+        "foreground": "hsl(0,0%,91%)",
+        "muted": "hsl(210,6%,20%)",
+        "mutedForeground": "hsl(0,0%,66%)",
+        "border": "hsl(210,6%,20%)"
+      }
+    },
+    "navbar": {
+      "height": "70px",
+      "padding": "12px 20px",
+      "background": "hsl(210,6%,15%)",
+      "shadow": "0 2px 8px hsla(210,7%,7%,0.4)",
+      "logo": {
+        "width": "48px",
+        "height": "48px",
+        "borderRadius": "0.75rem",
+        "hoverShadow": "0 8px 32px hsla(359,95%,56%,0.15)"
+      },
+      "links": ["Home", "Servizi", "Chi Siamo", "Contatti"],
+      "dropdown": {
+        "label": "Altro",
+        "links": ["Home", "Servizi", "Chi Siamo", "Contatti"]
+      }
+    },
+    "mainContent": {
+      "padding": "24px",
+      "scrollable": true,
+      "textColor": "hsl(0,0%,91%)",
+      "fontSize": "15px",
+      "lineHeight": 1.8
+    },
+    "overlay": {
+      "activeOnMobile": true,
+      "background": "hsla(210,7%,7%,0.5)"
+    }
+  },
+  "colors": {
+    "background": "hsl(210,7%,7%)",
+    "foreground": "hsl(0,0%,96%)",
+    "card": "hsl(210,6%,15%)",
+    "cardForeground": "hsl(0,0%,91%)",
+    "popover": "hsl(210,6%,15%)",
+    "popoverForeground": "hsl(0,0%,91%)",
+    "primary": "hsl(359,95%,56%)",
+    "primaryForeground": "hsl(0,0%,96%)",
+    "secondary": "hsl(210,6%,15%)",
+    "secondaryForeground": "hsl(0,0%,91%)",
+    "muted": "hsl(210,6%,20%)",
+    "mutedForeground": "hsl(0,0%,66%)",
+    "accent": "hsl(359,95%,56%)",
+    "accentForeground": "hsl(0,0%,96%)",
+    "destructive": "hsl(0,84%,60%)",
+    "destructiveForeground": "hsl(0,0%,96%)",
+    "border": "hsl(210,6%,20%)",
+    "input": "hsl(210,6%,15%)",
+    "ring": "hsl(359,95%,56%)"
+  },
+  "gradients": {
+    "crimson": "linear-gradient(135deg, hsl(359,95%,56%), hsl(359,85%,50%))",
+    "dark": "linear-gradient(135deg, hsl(210,7%,7%), hsl(210,6%,15%))",
+    "glass": "linear-gradient(135deg, hsla(359,95%,56%,0.1), hsla(359,95%,56%,0.05))"
+  },
+  "shadows": {
+    "glass": "0 8px 32px hsla(359,95%,56%,0.15)",
+    "crimson": "0 0 40px hsla(359,95%,56%,0.3)",
+    "minimal": "0 2px 8px hsla(210,7%,7%,0.4)"
+  },
+  "transitions": {
+    "smooth": "all 0.3s cubic-bezier(0.4,0,0.2,1)"
+  },
+  "responsiveness": {
+    "tablet1024": {
+      "sidebarWidth": "22%",
+      "mainWidth": "78%",
+      "buttonFontSize": "14px",
+      "buttonPadding": "10px 14px"
+    },
+    "tablet768": {
+      "sidebarOverlay": true,
+      "menuToggleVisible": true,
+      "mainWidth": "100%"
+    },
+    "mobile480": {
+      "navbarHeight": "60px",
+      "logoSize": "40px",
+      "sidebarFullWidth": true
+    },
+    "extraSmall360": {
+      "navbarHeight": "56px",
+      "logoSize": "36px",
+      "buttonFontSize": "12px",
+      "padding": "8px 10px"
+    }
+  },
+  "javascript": {
+    "toggleSidebar": true,
+    "overlayClickClosesSidebar": true,
+    "buttonClickClosesSidebar": true,
+    "dropdownClickToggle": true,
+    "clickOutsideClosesDropdown": true,
+    "windowResizeClosesSidebarDropdown": 768
+  }
+}
