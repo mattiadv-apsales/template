@@ -1,191 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Template</title>
+        <title>Template Responsivo</title>
         <style>
+            :root {
+                --background: 210 7% 7%;
+                --foreground: 0 0% 96%;
+                --card: 210 6% 15%;
+                --card-foreground: 0 0% 91%;
+                --popover: 210 6% 15%;
+                --popover-foreground: 0 0% 91%;
+                --primary: 359 95% 56%;
+                --primary-foreground: 0 0% 96%;
+                --secondary: 210 6% 15%;
+                --secondary-foreground: 0 0% 91%;
+                --muted: 210 6% 20%;
+                --muted-foreground: 0 0% 66%;
+                --accent: 359 95% 56%;
+                --accent-foreground: 0 0% 96%;
+                --destructive: 0 84% 60%;
+                --destructive-foreground: 0 0% 96%;
+                --border: 210 6% 20%;
+                --input: 210 6% 15%;
+                --ring: 359 95% 56%;
+                --radius: 0.75rem;
+                --gradient-crimson: linear-gradient(135deg, hsl(359 95% 56%), hsl(359 85% 50%));
+                --gradient-dark: linear-gradient(135deg, hsl(210 7% 7%), hsl(210 6% 15%));
+                --gradient-glass: linear-gradient(135deg, hsla(359 95% 56% / 0.1), hsla(359 95% 56% / 0.05));
+                --shadow-glass: 0 8px 32px hsla(359 95% 56% / 0.15);
+                --shadow-crimson: 0 0 40px hsla(359 95% 56% / 0.3);
+                --shadow-minimal: 0 2px 8px hsla(210 7% 7% / 0.4);
+                --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
             * {
                 padding: 0;
                 margin: 0;
                 box-sizing: border-box;
-                font-family: sans-serif;
-                color: white;
+                border-color: hsl(var(--border));
+            }
+
+            html, body {
+                height: 100%;
+                width: 100%;
             }
 
             body {
-                background: hsla(330, 5%, 7%, 1);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                background: hsl(var(--background));
+                color: hsl(var(--foreground));
             }
 
             .container {
                 width: 100vw;
                 height: 100vh;
                 display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                padding-left: 20px;
-                padding-right: 20px;
+                overflow: hidden;
             }
 
-            .navbar {
-                border-bottom: 1px solid hsla(220, 5%, 20%, 1);
-                width: 100%;
-                padding: 20px;
-                max-height: 10vh;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                position: sticky;
-                top: 0;
-                background: hsla(330, 5%, 7%, 1);
-                color: white;
-                z-index: 9999;
-                gap: 15px;
-            }
-
-            .navbar > a {
-                text-decoration: none;
-                font-size: 18px;
-            }
-
-            .lower-part {
-                width: 80%;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start; 
-                align-items: flex-start;
-                overflow-y: scroll;
-                scroll-behavior: smooth;
-                max-height: 100vh;
-                scrollbar-color: hsla(220, 5%, 20%, 1) hsla(330, 5%, 7%, 1); /* thumb and track */
-            }
-
-            /* Chrome, Edge, Safari */
-            .lower-part::-webkit-scrollbar {
-                width: 12px;
-            }
-
-            .lower-part::-webkit-scrollbar-track {
-                background: hsla(330, 5%, 7%, 1); /* track */
-            }
-
-            .lower-part::-webkit-scrollbar-thumb {
-                background: hsla(220, 5%, 20%, 1); /* thumb */
-                border-radius: 8px;
-                border: 2px solid hsla(330, 5%, 7%, 1); /* padding effetto */
-            }
-
-            .lower-part::-webkit-scrollbar-thumb:hover {
-                background: hsla(220, 8%, 30%, 1); /* più chiaro al passaggio del mouse */
-            }
-
+            /* SIDEBAR SINISTRA */
             .left-part {
                 width: 20%;
                 min-height: 100%;
-                max-height: 100%;
-                overflow-y: scroll;
+                overflow-y: auto;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start; 
+                justify-content: flex-start;
                 align-items: center;
-                border-right: 1px solid black;
+                border-right: 1px solid hsl(var(--border));
                 padding-top: 20px;
                 gap: 20px;
-                scrollbar-color: hsla(220, 5%, 20%, 1) hsla(330, 5%, 7%, 1); /* thumb and track */
+                background: hsl(var(--card));
+                scrollbar-color: hsl(var(--muted)) hsl(var(--card));
+                transition: var(--transition-smooth);
             }
 
-            /* Chrome, Edge, Safari */
             .left-part::-webkit-scrollbar {
                 width: 10px;
             }
 
             .left-part::-webkit-scrollbar-track {
-                background: hsla(330, 5%, 7%, 1); /* colore track (sfondo) */
+                background: hsl(var(--card));
             }
 
             .left-part::-webkit-scrollbar-thumb {
-                background: hsla(220, 5%, 20%, 1); /* colore thumb (parte mobile) */
-                border-radius: 8px;
-                border: 2px solid hsla(330, 5%, 7%, 1); /* piccolo bordo per effetto "spazio" */
+                background: hsl(var(--muted));
+                border-radius: var(--radius);
+                border: 2px solid hsl(var(--card));
             }
 
             .left-part::-webkit-scrollbar-thumb:hover {
-                background: hsla(220, 8%, 30%, 1); /* più chiaro al passaggio del mouse */
+                background: hsl(var(--muted-foreground));
             }
 
-            .left-part > .buttons {
+            .buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
                 width: 100%;
                 padding: 10px;
             }
 
-            .left-part > .buttons > .button_menu_left {
-                width: 80%;
-                padding: 10px;
-                margin-bottom: 10px;
-                border: none;
-                background: black;
-                color: white;
-                font-size: 16px;
+            .button_menu_left {
+                width: 85%;
+                padding: 12px 16px;
+                border: 2px solid transparent;
+                background: hsl(var(--secondary));
+                color: hsl(var(--secondary-foreground));
+                font-size: 15px;
+                font-weight: 500;
                 cursor: pointer;
-                border-radius: 26px;
+                border-radius: var(--radius);
+                transition: var(--transition-smooth);
+                text-align: center;
             }
 
-            .right-part {
-                width: 100%;
-                min-height: 100vh;
-                padding: 20px;
+            .button_menu_left:hover {
+                background: var(--gradient-crimson);
+                color: hsl(var(--primary-foreground));
+                border-color: hsl(var(--primary));
+                box-shadow: var(--shadow-crimson);
+                transform: translateX(5px);
+            }
+
+            .button_menu_left:active {
+                transform: translateX(3px) scale(0.98);
+            }
+
+            /* PARTE DESTRA (navbar + contenuto) */
+            .lower-part {
+                width: 80%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start; 
-                align-items: flex-start;
+                overflow: hidden;
+            }
+
+            /* NAVBAR */
+            .navbar {
+                border-bottom: 1px solid hsl(var(--border));
+                width: 100%;
+                padding: 16px 24px;
+                height: auto;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 gap: 20px;
+                background: hsl(var(--card));
+                color: hsl(var(--foreground));
+                z-index: 100;
+                flex-wrap: wrap;
+                box-shadow: var(--shadow-minimal);
+            }
+
+            .navbar > a {
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 8px 16px;
+                border-radius: var(--radius);
+                transition: var(--transition-smooth);
+                color: hsl(var(--muted-foreground));
+            }
+
+            .navbar > a:hover {
+                background: hsl(var(--secondary));
+                color: hsl(var(--primary));
             }
 
             .logo {
-                width: 56px;
-                height: 56px;
+                width: 48px;
+                height: 48px;
+                border-radius: var(--radius);
+                object-fit: cover;
+                transition: var(--transition-smooth);
+            }
+
+            .logo:hover {
+                transform: scale(1.05);
+                box-shadow: var(--shadow-glass);
+            }
+
+            /* CONTENUTO PRINCIPALE */
+            .right-part {
+                width: 100%;
+                flex: 1;
+                padding: 24px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 20px;
+                scrollbar-color: hsl(var(--muted)) hsl(var(--background));
+            }
+
+            .right-part::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            .right-part::-webkit-scrollbar-track {
+                background: hsl(var(--background));
+            }
+
+            .right-part::-webkit-scrollbar-thumb {
+                background: hsl(var(--muted));
+                border-radius: var(--radius);
+                border: 2px solid hsl(var(--background));
+            }
+
+            .right-part::-webkit-scrollbar-thumb:hover {
+                background: hsl(var(--muted-foreground));
+            }
+
+            .right-part > p {
+                line-height: 1.8;
+                color: hsl(var(--card-foreground));
+                font-size: 15px;
+            }
+
+            /* RESPONSIVE DESIGN */
+            @media (max-width: 1024px) {
+                .left-part {
+                    width: 25%;
+                }
+
+                .lower-part {
+                    width: 75%;
+                }
+
+                .right-part {
+                    padding: 16px;
+                }
+
+                .navbar {
+                    padding: 12px 16px;
+                    gap: 15px;
+                }
+
+                .button_menu_left {
+                    font-size: 14px;
+                    padding: 10px 14px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                }
+
+                .left-part {
+                    width: 100%;
+                    height: auto;
+                    border-right: none;
+                    border-bottom: 1px solid hsl(var(--border));
+                    padding: 12px;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    scrollbar-width: thin;
+                }
+
+                .left-part::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                .buttons {
+                    flex-direction: row;
+                    width: auto;
+                    gap: 10px;
+                    padding: 0;
+                }
+
+                .button_menu_left {
+                    width: auto;
+                    min-width: 120px;
+                    padding: 8px 12px;
+                    font-size: 13px;
+                    flex-shrink: 0;
+                }
+
+                .lower-part {
+                    width: 100%;
+                    height: auto;
+                    flex: 1;
+                    overflow-y: auto;
+                }
+
+                .navbar {
+                    flex-wrap: nowrap;
+                    gap: 10px;
+                    padding: 12px;
+                }
+
+                .navbar > a {
+                    font-size: 14px;
+                    padding: 6px 12px;
+                    display: none;
+                }
+
+                .navbar > a:first-of-type {
+                    display: inline-block;
+                }
+
+                .right-part {
+                    padding: 12px;
+                }
+
+                .logo {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .navbar {
+                    padding: 10px;
+                }
+
+                .navbar > a {
+                    font-size: 12px;
+                    padding: 4px 8px;
+                }
+
+                .button_menu_left {
+                    min-width: 100px;
+                    font-size: 12px;
+                }
+
+                .right-part {
+                    padding: 8px;
+                    gap: 12px;
+                }
+
+                .right-part > p {
+                    font-size: 14px;
+                    line-height: 1.6;
+                }
+
+                .logo {
+                    width: 36px;
+                    height: 36px;
+                }
             }
         </style>
     </head>
     <body>
-
-        <div class = "container">
-            <div class = "left-part">
-                <!-- CONTENUTO MENU A SINISTRA -->
-                <div class = "buttons">
-                    <button class = "button_menu_left">Button 1</button>
-                    <button class = "button_menu_left">Button 2</button>
-                    <button class = "button_menu_left">Button 3</button>
-                    <button class = "button_menu_left">Button 4</button>
-                    <button class = "button_menu_left">Button 5</button>
-                    <button class = "button_menu_left">Button 6</button>
-                    <button class = "button_menu_left">Button 7</button>
-                    <button class = "button_menu_left">Button 8</button>
-                    <button class = "button_menu_left">Button 9</button>
-                    <button class = "button_menu_left">Button 10</button>
+        <div class="container">
+            <!-- SIDEBAR SINISTRA -->
+            <div class="left-part">
+                <div class="buttons">
+                    <button class="button_menu_left">Button 1</button>
+                    <button class="button_menu_left">Button 2</button>
+                    <button class="button_menu_left">Button 3</button>
+                    <button class="button_menu_left">Button 4</button>
+                    <button class="button_menu_left">Button 5</button>
+                    <button class="button_menu_left">Button 6</button>
+                    <button class="button_menu_left">Button 7</button>
+                    <button class="button_menu_left">Button 8</button>
+                    <button class="button_menu_left">Button 9</button>
+                    <button class="button_menu_left">Button 10</button>
                 </div>
             </div>
-            <div class = "lower-part">
-                <div class = "navbar">
-                    <!-- CONTENUTO NAVBAR -->
-                    <img src="https://images.squarespace-cdn.com/content/v1/5fb03606f89b0151b043af38/6b711ed9-c7b8-42b1-9165-3ccfaba06042/Untitled-3.png" alt = "logo" class = "logo">
-                    <a href = "#">Home</a>
-                    <a href = "#">Home</a>
-                    <a href = "#">Home</a>
-                    <a href = "#">Home</a>
+
+            <!-- PARTE DESTRA (navbar + contenuto) -->
+            <div class="lower-part">
+                <!-- NAVBAR -->
+                <div class="navbar">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5fb03606f89b0151b043af38/6b711ed9-c7b8-42b1-9165-3ccfaba06042/Untitled-3.png" alt="logo" class="logo">
+                    <a href="#">Home</a>
+                    <a href="#">Servizi</a>
+                    <a href="#">Chi Siamo</a>
+                    <a href="#">Contatti</a>
                 </div>
-                <div class = "right-part">
-                    <!-- CONTENUTO MAIN DELLA PAGINA -->
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias temporibus explicabo nesciunt dicta quaerat iusto delectus! Impedit provident autem fugiat vero in a quod tenetur quisquam, mollitia sit distinctio magni reprehenderit dolorum qui harum eligendi error voluptatem totam sed facilis minima non? Nam quia facilis consequuntur delectus quidem sapiente, sed error, aspernatur perferendis ea voluptatum unde! Corrupti harum neque enim fuga quidem aspernatur distinctio eaque consequuntur! Numquam, illum? Sint ea magni autem voluptatem assumenda reprehenderit tempore non ipsum unde, dolorum similique praesentium, totam consectetur perspiciatis nulla fuga culpa consequuntur libero accusamus quia hic quam aut voluptates. Est natus reiciendis eligendi optio consequatur quos non illum, hic, eos alias, quaerat molestiae rem ducimus inventore tempora. A amet reiciendis quisquam deleniti, hic autem labore laborum nostrum recusandae perferendis quam, doloribus quas nulla unde animi aliquid dolores, sit cum enim iure iusto magni distinctio beatae? Corrupti, harum, voluptates earum in necessitatibus quasi recusandae atque eum sed id iste, libero perspiciatis ea dolore. Recusandae odio quidem eaque laborum tempore maxime impedit voluptatum inventore obcaecati voluptas pariatur voluptate quod exercitationem doloremque expedita iure sint, ea sapiente quas corporis! Aut, in hic iure molestiae quaerat quas nesciunt ab et deleniti esse, non dolor delectus? Et adipisci suscipit, ab unde recusandae incidunt tenetur consectetur assumenda deserunt laborum nostrum modi, tempore voluptas ipsa omnis non! Harum mollitia obcaecati deleniti perferendis tempora et rem dolor perspiciatis porro voluptate architecto accusantium incidunt nemo dolores alias qui, libero sapiente similique. Nobis cupiditate quis tenetur odit ipsa officia fugiat commodi nulla officiis et explicabo dolores labore ducimus quidem rem dolore eos totam nihil possimus obcaecati, cumque illum quibusdam a? Eius ipsum perferendis, architecto beatae temporibus in quas harum. Vitae sequi rerum consequuntur hic dolorum earum a optio recusandae, assumenda culpa vero aut provident, excepturi aperiam sunt voluptatibus illum ex quaerat velit odio. Dolores nisi ullam pariatur nesciunt ea a soluta. Cumque consequatur sit dicta minima quia aspernatur! Reiciendis harum natus neque! Ipsam dolor assumenda ad natus inventore est consequuntur quasi iusto, iste atque! Cum voluptatem tempora maiores blanditiis, similique velit, quis quia ullam iure assumenda totam ab iste. Saepe, a, quibusdam suscipit minima mollitia impedit pariatur vel obcaecati nihil eaque adipisci neque commodi iusto quas eum dolorem ex eligendi quaerat quam possimus tempora, tempore ea molestias! Tenetur mollitia, fuga consequatur enim velit iusto delectus tempore quibusdam quisquam ipsum corrupti quasi consequuntur. Maiores voluptate saepe beatae aliquid adipisci ipsa consequuntur necessitatibus a, sint nam nobis ipsum doloremque animi officiis non quae, voluptas ratione perferendis id? Reprehenderit magni vitae, amet numquam quia atque ad maxime culpa? Blanditiis ipsam atque modi voluptatum ratione asperiores accusantium adipisci unde culpa, eos, fugiat totam itaque praesentium doloremque porro quam quae ut veritatis quo dignissimos dolore minima, nemo nulla ipsum? Qui porro tempora nobis eum provident at pariatur saepe deleniti inventore maxime deserunt exercitationem error voluptas perspiciatis adipisci esse, recusandae et nemo iste hic vero voluptates nulla. Velit laboriosam corrupti officiis consectetur dicta esse optio expedita iusto dolores blanditiis animi sed voluptas, dolore aspernatur rerum, laborum sit minus cum veritatis ratione? Iure quaerat consequuntur cum vero cupiditate tenetur expedita neque libero eaque repudiandae quos maiores eveniet alias, ut rem labore at aliquid ab pariatur, esse itaque eos nam ex atque! Quam, quos. Veniam totam excepturi deleniti harum architecto quis consequuntur at iste! Impedit eligendi tempora autem nulla modi recusandae quo vitae praesentium maiores aliquid eos numquam exercitationem asperiores fugit inventore reprehenderit harum iure maxime, nemo magni hic quasi quis. Numquam culpa nam saepe debitis harum perferendis! Blanditiis neque quidem placeat. Ea tenetur consectetur vero, quam, reprehenderit quidem est excepturi molestias officiis unde laboriosam. Fugit debitis, reprehenderit adipisci ex autem expedita mollitia soluta eum, sint ullam eos, a doloribus? Odit, ipsa rem veniam alias excepturi quam, ex nisi adipisci laborum nihil dignissimos praesentium! Tempore iure reiciendis quas, soluta quasi voluptates blanditiis exercitationem impedit quibusdam delectus accusantium dolorem perspiciatis numquam voluptate repudiandae similique, ea praesentium. Minima reiciendis esse quisquam neque maiores, necessitatibus est inventore omnis sit vero doloribus nam laboriosam tempora veniam cum expedita sunt, eligendi beatae facere. Ratione doloremque rem optio! Culpa porro, tempora atque in eum dolorem ea officiis consequuntur rem totam cumque, magnam modi ullam corporis, expedita repellendus magni soluta quibusdam harum minus molestiae ducimus accusantium eaque. Accusantium pariatur laudantium ad eveniet sapiente animi accusamus excepturi magni molestiae quod? Odio, sit necessitatibus! Provident quidem voluptatum delectus facilis rerum! Molestiae voluptatibus iusto necessitatibus totam incidunt esse labore voluptas, aliquam reiciendis! Voluptatibus consequuntur rerum repellat dolores magnam itaque exercitationem quaerat reprehenderit ex culpa, eius harum quae totam debitis ipsa, accusantium eaque ipsum omnis rem iste temporibus, unde tempore voluptatem! Nesciunt impedit cupiditate odio placeat velit. Libero illo voluptas repellendus nihil officiis. Recusandae cumque distinctio natus fugiat maxime nam minima saepe id esse exercitationem nisi a, iste fugit provident aut numquam perspiciatis illo sint deleniti corporis? Aspernatur laborum at architecto accusamus nostrum corporis aperiam nemo earum odio minima voluptatibus, velit beatae qui obcaecati, animi iusto amet possimus libero quod quae dicta magni placeat voluptas ratione! Harum consectetur voluptate, voluptatem repellat blanditiis quae pariatur porro iure, laborum delectus voluptas a, nostrum error repudiandae autem eius ducimus dicta quibusdam maxime reiciendis quidem labore distinctio! Excepturi in sint quidem quam quia nesciunt officiis laboriosam minus tempore modi praesentium, voluptatem odio error consectetur voluptatum! Saepe quisquam mollitia nihil, amet maiores nemo vitae quis repudiandae dolore eius, dolorem culpa iusto sint quasi quam similique ratione consequuntur porro aut sequi, adipisci quod est eveniet itaque. Culpa velit doloribus beatae quasi aperiam illum. Esse eligendi voluptatum nulla aperiam, minus sapiente soluta sed quos facilis numquam vero est totam cupiditate, ratione maiores error? Eveniet quasi similique quae provident, quisquam delectus eius facere id blanditiis aspernatur enim esse, quis corporis quia? Totam voluptates illum deserunt omnis sunt culpa pariatur voluptate natus vel maiores reiciendis cumque perspiciatis quae, illo necessitatibus nostrum iure? Architecto nostrum beatae quasi officiis eos corrupti vel rerum? In tempore omnis perspiciatis, illum dolores minima nobis assumenda delectus iure sunt. Architecto commodi velit explicabo ipsum similique ipsam, error, voluptatum consectetur temporibus laudantium, laboriosam ullam eveniet quia soluta? Et magnam voluptate voluptas culpa ut voluptates consequatur dolore nobis saepe quae dolores molestias debitis ipsam molestiae accusamus, neque architecto doloribus, veniam alias necessitatibus possimus veritatis earum. Quas minus obcaecati, explicabo corporis sapiente quo aspernatur veniam ipsa impedit unde. Maxime aliquam, ipsam molestias vitae rerum porro impedit soluta ad optio officia officiis culpa sed deleniti voluptates qui doloremque sunt eligendi dolore facere? Pariatur, ad incidunt. Itaque accusantium voluptates quaerat minima inventore error libero. Enim, cum nihil. Recusandae aperiam distinctio illum magnam, nobis, quis culpa fugit, alias incidunt quidem dolorum? Dolor praesentium tempore, vel quisquam, odio sint quibusdam culpa fugit totam voluptatibus ducimus natus ipsam! Quibusdam itaque quae odit culpa. Debitis, hic ea quaerat aperiam, repudiandae quibusdam a quidem, ab pariatur neque tempora voluptas possimus? Quas, pariatur ipsum nobis omnis assumenda voluptatum quidem tenetur velit ab perspiciatis consectetur fuga veritatis aspernatur voluptas inventore magni nostrum accusantium labore, unde nihil ducimus ut, at voluptate! Commodi, neque cupiditate? Debitis obcaecati esse tenetur laboriosam non quis saepe beatae dolorum doloribus unde, incidunt, voluptates consequuntur dolores nisi illum iure omnis totam nesciunt error minus facilis excepturi quae soluta. Velit reprehenderit saepe iure reiciendis voluptatem vitae aliquid natus quibusdam? Quidem magni nam, dicta debitis vitae minus culpa aut cum id iure laboriosam totam, nemo delectus neque vel tempore! Ipsa, delectus. Consectetur doloribus quam odit! Beatae iure vitae fugit voluptates. Modi earum vel eum labore cumque aliquid eligendi atque voluptatem. Vitae nihil sit veniam eligendi libero dolor expedita aliquid exercitationem aperiam repellendus excepturi dignissimos, placeat tempore hic quidem cum illum? Doloremque perspiciatis inventore commodi! Nesciunt illo nulla eos facere repellendus error obcaecati eius! Et, earum. Culpa dignissimos dolore eius eveniet in vero vel, quo veniam voluptatibus illum. Rem voluptatum id sed non modi maiores obcaecati ducimus impedit quidem tempora! Doloremque, necessitatibus quibusdam! Autem tempora ullam nisi sed nostrum quos ducimus perferendis, dignissimos consequuntur tempore excepturi non veritatis debitis maiores exercitationem quisquam commodi reiciendis dolor. Fugit, placeat inventore eligendi vitae eius adipisci distinctio, cum a tempore consequuntur dicta accusantium incidunt maxime nulla, deserunt numquam maiores animi magni ipsum nam veritatis doloremque porro reiciendis amet! Dignissimos odio laboriosam ipsam laudantium ex ad amet pariatur aperiam architecto? Debitis est vel perspiciatis odio deleniti, qui in expedita adipisci rem mollitia porro fuga magni quasi quo nobis cupiditate blanditiis eum veniam quidem fugiat! Impedit non, repellat dolorum vero, doloribus eveniet eius dignissimos sit iure obcaecati blanditiis perferendis, cupiditate necessitatibus? Doloribus eligendi ex quo totam cumque fuga, vitae illo eum atque ipsam, voluptas ab magnam debitis nam dicta optio quisquam, minus dolore explicabo ullam! Exercitationem nesciunt distinctio facilis animi autem nulla, nihil temporibus odio saepe, natus numquam. Ut, labore dicta consequatur consequuntur explicabo illo corrupti, id animi debitis reiciendis voluptates delectus expedita velit repellat aliquam voluptatibus sequi saepe qui libero, aut rerum! Dolorem eius perspiciatis cupiditate tempora in atque quae, laborum, optio repudiandae quasi doloremque nulla ipsam hic, nobis et animi quidem asperiores consequuntur. Reiciendis consequuntur eius rerum iusto dolorum esse. Minus nobis expedita optio ullam libero quos! Eius laborum nam corporis doloribus expedita cum porro quia sapiente ut nisi ducimus natus id ad, quo deserunt nihil alias fugiat labore exercitationem! Culpa cumque nam saepe aspernatur unde ducimus autem inventore odit voluptatibus? In eum quasi molestiae, animi odit harum debitis aut, doloribus rem possimus ratione itaque esse mollitia dolore earum. Corrupti quibusdam fuga similique vero exercitationem placeat ea voluptate, dolorem voluptatibus id molestias, repudiandae vel deserunt minus. Rem architecto perspiciatis ipsa minima mollitia. Consectetur impedit dignissimos tenetur? Reprehenderit dignissimos, blanditiis pariatur animi perspiciatis numquam fugit voluptas. Obcaecati magni, eum ut dignissimos amet cum architecto laudantium doloribus eos iste fugit totam, at qui necessitatibus. At mollitia harum vitae aut ipsam pariatur totam velit veritatis alias, vero distinctio debitis accusantium quod quasi nesciunt natus sunt hic? Quasi doloribus nam eos perspiciatis cupiditate fuga facilis itaque distinctio quo unde repellendus vero tenetur minima ipsa saepe omnis deserunt, cumque alias provident voluptatibus soluta quidem illo velit! Sit eum illum nobis sunt suscipit quis ducimus accusamus mollitia optio, sed voluptatum ipsum ex, incidunt facilis. Dolorem aperiam eveniet sit omnis qui consequuntur ipsum assumenda, sed voluptates aut! Cum repudiandae exercitationem deleniti tempore sit numquam aliquid nulla eum tenetur! Ipsam cupiditate corporis id, sequi consectetur dignissimos excepturi minima impedit autem quibusdam temporibus sunt ad molestias est neque ipsa error eveniet exercitationem laudantium quos? Eius, qui tempore dolorem repellendus atque, harum aspernatur voluptatem unde at ipsam fuga consequuntur inventore! Quod nihil alias obcaecati nam esse recusandae, ut magnam nobis sed perspiciatis quibusdam facere dolor itaque reiciendis veniam voluptatum libero laborum natus eius praesentium odio. Temporibus inventore itaque delectus ipsum in tempora veritatis odit? Sapiente fugit officia illum amet at nihil cum hic! Eius asperiores architecto tempore facere nemo corrupti error cumque, ipsum, distinctio quia soluta itaque quisquam libero voluptate modi ipsam amet odio dignissimos ad atque fuga mollitia! Quos, ratione similique temporibus dolore possimus reprehenderit! Est aperiam quam mollitia necessitatibus excepturi voluptatibus fugiat optio. Labore vero velit possimus tempore iste ducimus temporibus doloremque voluptates non blanditiis autem commodi, provident incidunt id deleniti, suscipit, modi tenetur debitis quos cum. Odio, asperiores molestiae. Ratione ea, veniam officiis consequatur saepe cupiditate cum? Dolorum nisi sunt laudantium placeat molestiae aspernatur alias asperiores tenetur reprehenderit voluptatem pariatur quod et accusamus maiores commodi velit, temporibus optio obcaecati iusto illo officiis perspiciatis. Dignissimos qui eligendi corporis autem repellat expedita rem. Eveniet, facilis reprehenderit, perspiciatis esse officiis totam, nobis labore cum dolores aperiam quos velit. Dolorem quas pariatur ab molestias maiores illum suscipit dignissimos provident quasi placeat repellendus voluptatem omnis veniam culpa similique quae aperiam, consectetur asperiores odit reiciendis cumque dolores inventore quidem alias. Dicta et excepturi, error illum nemo totam odit dolorem quae tempora nulla delectus iusto repellat fuga omnis hic unde laborum tempore voluptas! Nam culpa ea impedit vitae corporis molestias autem aperiam dolore repudiandae optio corrupti molestiae incidunt facilis earum enim, a amet tempore alias mollitia? Debitis aliquam quod omnis qui inventore itaque atque tempore sapiente! Quam exercitationem sed, sunt dicta delectus dolores ex aliquam consequatur pariatur aliquid explicabo, necessitatibus cumque unde, fuga repellat repudiandae fugiat laborum.
+
+                <!-- CONTENUTO PRINCIPALE -->
+                <div class="right-part">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias temporibus explicabo nesciunt dicta quaerat iusto delectus! Impedit provident autem fugiat vero in a quod tenetur quisquam, mollitia sit distinctio magni reprehenderit dolorum qui harum eligendi error voluptatem totam sed facilis minima non? Nam quia facilis consequuntur delectus quidem sapiente, sed error, aspernatur perferendis ea voluptatum unde! Corrupti harum neque enim fuga quidem aspernatur distinctio eaque consequuntur!</p>
                 </div>
             </div>
         </div>
-        
     </body>
 </html>
